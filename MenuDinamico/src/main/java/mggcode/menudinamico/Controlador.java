@@ -94,7 +94,7 @@ public class Controlador implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Locale locale = new Locale("es", "ES");
         Locale locale2 = new Locale("en", "UK");
-        resourceBundle = ResourceBundle.getBundle("i18n/strings", locale);
+        resourceBundle = ResourceBundle.getBundle("mggcode.i18n.strings", locale);
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")), resourceBundle);
         } catch (IOException e) {
