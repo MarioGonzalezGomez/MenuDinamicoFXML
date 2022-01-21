@@ -10,6 +10,7 @@
 
 <StackPane alignment="TOP_LEFT" prefHeight="262.0" prefWidth="191.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mggcode.menudinamico.Controlador">
 
+    <fx:include fx:id="detalle" source="detalle.fxml" />
     <VBox fx:id="vBox" maxHeight="Infinity" maxWidth="70" style="-fx-background-color: 000000;" translateX="-50">
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
