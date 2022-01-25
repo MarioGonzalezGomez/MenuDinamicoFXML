@@ -1,14 +1,19 @@
 package mggcode.menudinamico;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import mggcode.menudinamico.entity.Name;
+import mggcode.menudinamico.entity.Personas;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +23,11 @@ import java.util.ResourceBundle;
 
 public class Controlador implements Initializable {
 
+    @FXML
+    private Button btnCargarPersona;
+
+    @FXML
+    private Button btnVolver;
 
     @FXML
     private ImageView imageAjustes;
@@ -57,11 +67,34 @@ public class Controlador implements Initializable {
     private VBox vBox;
 
     @FXML
+    private Pane panel;
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        // Locale.setDefault(locale);
+    }
+
+    @FXML
+    void cargarPersona(ActionEvent event) {
+
+    }
+
+    @FXML
+    void volverPrincipal(ActionEvent event) {
+
+    }
+
+    @FXML
     void desplegarMenu(MouseEvent event) {
         if (vBox.getTranslateX() == -50) {
             vBox.setTranslateX(vBox.getTranslateX() + 50);
+            panel.setTranslateX(vBox.getTranslateX());
+            panel.setVisible(true);
         } else {
             vBox.setTranslateX(-50.0);
+            panel.setVisible(false);
             if (event.getSource().equals(imageHome)) {
                 lbl1.setVisible(true);
                 lbl2.setVisible(false);
@@ -87,19 +120,7 @@ public class Controlador implements Initializable {
                 lbl3.setVisible(false);
                 lbl4.setVisible(true);
             }
-        }
-    }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Locale locale = new Locale("es", "ES");
-        Locale locale2 = new Locale("en", "UK");
-        resourceBundle = ResourceBundle.getBundle("mggcode.i18n.strings", locale);
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")), resourceBundle);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-       // Locale.setDefault(locale);
     }
 }

@@ -6,11 +6,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
+
+import java.util.ResourceBundle;
 
 public class HelloApplication extends Application {
+    private ResourceBundle resourceBundle;
+
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Locale locale = new Locale("es", "ES");
+        Locale locale2 = new Locale("en", "UK");
+        resourceBundle = ResourceBundle.getBundle("mggcode.i18n.strings", locale);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"), resourceBundle);
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Interfaz Dinamica");
         stage.setScene(scene);
