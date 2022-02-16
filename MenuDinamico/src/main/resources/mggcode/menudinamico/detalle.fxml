@@ -7,8 +7,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mggcode.menudinamico.detalleController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mggcode.menudinamico.DetalleController">
    <children>
       <FlowPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -18,35 +19,35 @@
                </FlowPane.margin></ImageView>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label fx:id="lblGender">
+                  <Label fx:id="lblGender" text="xxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
                      </VBox.margin>
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label fx:id="lblFirstName">
+                  <Label fx:id="lblFirstName" text="xxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label fx:id="lblLastName">
+                  <Label fx:id="lblLastName" text="xxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label fx:id="lblEmail">
+                  <Label fx:id="lblEmail" text="xxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label fx:id="lblCell">
+                  <Label fx:id="lblCell" text="xxxxxxxxxxxxxxxxx">
                      <VBox.margin>
                         <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -57,5 +58,10 @@
             </VBox>
          </children>
       </FlowPane>
+      <FontIcon fx:id="salirDetalle" iconLiteral="far-arrow-alt-circle-left" iconSize="20" selectionEnd="0" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </StackPane.margin>
+      </FontIcon>
    </children>
 </StackPane>

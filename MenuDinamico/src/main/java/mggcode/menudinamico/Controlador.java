@@ -1,33 +1,38 @@
 package mggcode.menudinamico;
 
 
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import mggcode.menudinamico.entity.Name;
-import mggcode.menudinamico.entity.Personas;
+import mggcode.menudinamico.entity.Persona;
+import mggcode.menudinamico.rest.APIRestConfig;
+import mggcode.menudinamico.rest.AccesoDatosRest;
+import retrofit2.Response;
+
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controlador implements Initializable {
+    AccesoDatosRest restService = APIRestConfig.getService();
 
     @FXML
-    private Button btnCargarPersona;
+    private ListView<Persona> lista;
+    private ObservableList<Persona> personas;
 
     @FXML
-    private Button btnVolver;
+    private HBox listaDetalle;
 
     @FXML
     private ImageView imageAjustes;
@@ -41,50 +46,54 @@ public class Controlador implements Initializable {
     @FXML
     private ImageView imageHome;
 
-    /*
-    @FXML private Label lblAjustes;
-
-    @FXML private Label lblAudio;
-
-    @FXML private Label lblContactos;
-
-    @FXML private Label lblHome;
-    */
-
-    @FXML
-    private Label lbl1;
-
-    @FXML
-    private Label lbl2;
-
-    @FXML
-    private Label lbl3;
-
-    @FXML
-    private Label lbl4;
-
     @FXML
     private VBox vBox;
 
     @FXML
     private Pane panel;
 
+    @FXML
+    private StackPane detalle;
+
+    @FXML
+    private StackPane grafico;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        // Locale.setDefault(locale);
+        listaDetalle.setVisible(false);
+        listaDetalle.setTranslateX(-100);
+        personas = cargarPersonas();
+        if (personas == null) {
+            System.out.println("Por qué está vacia??");
+        }
+        lista.setItems(personas);
+        lista.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
-    @FXML
-    void cargarPersona(ActionEvent event) {
-
+    private ObservableList<Persona> cargarPersonas() {
+        List<Persona> noObservable = getPersonas();
+        if (noObservable != null) {
+            return FXCollections.observableArrayList(noObservable);
+        } else {
+            return null;
+        }
     }
 
-    @FXML
-    void volverPrincipal(ActionEvent event) {
-
+    private List<Persona> getPersonas() {
+        try {
+            Response<List<Persona>> response = restService.personasGetAll().execute();
+            if (response.isSuccessful() && response.body() != null) {
+                return response.body();
+            } else {
+                System.out.println("Error: " + response.code());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+
 
     @FXML
     void desplegarMenu(MouseEvent event) {
@@ -96,29 +105,29 @@ public class Controlador implements Initializable {
             vBox.setTranslateX(-50.0);
             panel.setVisible(false);
             if (event.getSource().equals(imageHome)) {
-                lbl1.setVisible(true);
-                lbl2.setVisible(false);
-                lbl3.setVisible(false);
-                lbl4.setVisible(false);
+                //  lbl1.setVisible(true);
+                //  lbl2.setVisible(false);
+                //  lbl3.setVisible(false);
+                //  lbl4.setVisible(false);
             }
             if (event.getSource().equals(imageAudio)) {
-                lbl1.setVisible(false);
-                lbl2.setVisible(true);
-                lbl3.setVisible(false);
-                lbl4.setVisible(false);
+                // lbl1.setVisible(false);
+                // lbl2.setVisible(true);
+                // lbl3.setVisible(false);
+                // lbl4.setVisible(false);
             }
             if (event.getSource().equals(imageContactos)) {
-                lbl1.setVisible(false);
-                lbl2.setVisible(false);
-                lbl3.setVisible(true);
-                lbl4.setVisible(false);
+                //  lbl1.setVisible(false);
+                //  lbl2.setVisible(false);
+                //  lbl3.setVisible(true);
+                //  lbl4.setVisible(false);
             }
 
             if (event.getSource().equals(imageAjustes)) {
-                lbl1.setVisible(false);
-                lbl2.setVisible(false);
-                lbl3.setVisible(false);
-                lbl4.setVisible(true);
+                //  lbl1.setVisible(false);
+                //  lbl2.setVisible(false);
+                //  lbl3.setVisible(false);
+                //  lbl4.setVisible(true);
             }
 
         }
