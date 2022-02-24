@@ -11,7 +11,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane alignment="TOP_LEFT" prefHeight="262.0" prefWidth="191.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mggcode.menudinamico.Controlador">
+<StackPane alignment="TOP_LEFT" prefHeight="262.0" prefWidth="191.0" stylesheets="@estilos.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mggcode.menudinamico.PrincipalController">
+    <HBox fx:id="listaDetalle">
+        <children>
+            <ListView fx:id="lista" editable="true" prefHeight="200.0" prefWidth="200.0">
+            <padding>
+               <Insets left="145.0" />
+            </padding></ListView>
+
+            <fx:include fx:id="detalle" layoutX="200.0" source="detalle.fxml" />
+            <fx:include fx:id="grafico" layoutX="400.0" source="grafico.fxml" />
+        </children>
+    </HBox>
     <VBox fx:id="vBox" maxHeight="Infinity" maxWidth="70" style="-fx-background-color: 000000;" translateX="-50">
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
@@ -20,10 +31,13 @@
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
                 </Label>
-                <ImageView fx:id="imageHome" fitHeight="45.0" fitWidth="70.0" onMouseClicked="#desplegarMenu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 30;">
+                <ImageView fx:id="imageHome" fitHeight="45.0" fitWidth="70.0" onMouseClicked="#desplegarMenu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 0;">
                     <image>
                         <Image url="@../images/casa.png" />
                     </image>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
                 </ImageView>
             </children>
         </HBox>
@@ -34,24 +48,33 @@
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
                 </Label>
-                <ImageView fx:id="imageAudio" fitHeight="45.0" fitWidth="70.0" onMouseClicked="#desplegarMenu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 33;">
+                <ImageView fx:id="imageAudio" fitHeight="45.0" fitWidth="70.0" onMouseClicked="#desplegarMenu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 3;">
                     <image>
                         <Image url="@../images/ajustamiento.png" />
                     </image>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
                 </ImageView>
             </children>
         </HBox>
-        <HBox prefHeight="100.0" prefWidth="200.0">
+        <HBox prefHeight="100.0" prefWidth="186.0">
             <children>
                 <Label fx:id="lblContactos" minWidth="-Infinity" text="%lbl.contact">
                     <font>
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
                 </Label>
-                <ImageView fx:id="imageContactos" fitHeight="45.0" fitWidth="70.0" onMouseClicked="#desplegarMenu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 15;">
+                <ImageView fx:id="imageContactos" fitHeight="45.0" fitWidth="70.0" onMouseClicked="#desplegarMenu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -20;">
                     <image>
                         <Image url="@../images/grupo-de-personas.png" />
                     </image>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
                 </ImageView>
             </children>
         </HBox>
@@ -62,27 +85,22 @@
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
                 </Label>
-                <ImageView fx:id="imageAjustes" fitHeight="45.0" fitWidth="70.0" onMouseClicked="#desplegarMenu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 29;">
+                <ImageView fx:id="imageAjustes" fitHeight="45.0" fitWidth="70.0" onMouseClicked="#desplegarMenu" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -1;">
                     <image>
                         <Image url="@../images/ajustes.png" />
                     </image>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
                 </ImageView>
-
-                <Pane fx:id="panel" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B0AAA980;">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </Pane>
             </children>
         </HBox>
 
     </VBox>
-    <HBox fx:id="listaDetalle" prefHeight="100.0" prefWidth="200.0">
-        <children>
-            <ListView fx:id="lista" editable="true" prefHeight="200.0" prefWidth="200.0" />
 
-            <fx:include fx:id="detalle" source="detalle.fxml" />
-            <fx:include fx:id="grafico" source="grafico.fxml" />
-        </children>
-    </HBox>
+       <Pane fx:id="panel" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: B0AAA980;">
+           <opaqueInsets>
+               <Insets />
+           </opaqueInsets>
+       </Pane>
 </StackPane>

@@ -4,9 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import org.kordamp.ikonli.javafx.FontIcon;
 
+
 public class DetalleController {
+
+    @FXML
+    private StackPane detalle;
 
     @FXML
     private FontIcon salirDetalle;
@@ -32,21 +37,6 @@ public class DetalleController {
         lblLastName.setText(apellido);
         lblEmail.setText(email);
         lblPhone.setText(telefono);
-
-
-        ivUser.setVisible(true);
-        lblFirstName.setVisible(true);
-        lblLastName.setVisible(true);
-        lblPhone.setVisible(true);
-        lblEmail.setVisible(true);
-    }
-
-    public void ocultarDetalle() {
-        ivUser.setVisible(false);
-        lblFirstName.setVisible(false);
-        lblLastName.setVisible(false);
-        lblPhone.setVisible(false);
-        lblEmail.setVisible(false);
     }
 
 }

@@ -18,7 +18,7 @@ public class App extends Application {
         Locale locale = new Locale("es", "ES");
         Locale locale2 = new Locale("en", "UK");
         resourceBundle = ResourceBundle.getBundle("mggcode.i18n.strings", locale);
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("hello-view.fxml"), resourceBundle);
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("principal.fxml"), resourceBundle);
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Interfaz Dinamica");
         stage.setScene(scene);
