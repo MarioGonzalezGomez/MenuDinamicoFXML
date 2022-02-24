@@ -56,8 +56,6 @@ public class PrincipalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        detalleController = new DetalleController();
-        graficoController = new GraficoController();
         listaDetalle.setVisible(false);
         detalle.setVisible(false);
         grafico.setVisible(false);
