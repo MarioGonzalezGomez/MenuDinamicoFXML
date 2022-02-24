@@ -9,5 +9,9 @@ module mggcode.menudinamico {
     requires retrofit2.converter.gson;
 
     opens mggcode.menudinamico to javafx.fxml;
+    opens mggcode.menudinamico.entity;
+    opens mggcode.menudinamico.rest;
     exports mggcode.menudinamico;
+    exports mggcode.menudinamico.entity;
+    exports mggcode.menudinamico.rest;
 }
