@@ -117,9 +117,9 @@ public class PrincipalController implements Initializable {
                 volverAlMenu();
             }
             if (event.getSource().equals(imageContactos)) {
-                // detalleController.ocultarDetalle();
                 listaDetalle.setVisible(true);
                 detalle.setVisible(true);
+                grafico.setVisible(true);
             }
 
             if (event.getSource().equals(imageAjustes)) {
