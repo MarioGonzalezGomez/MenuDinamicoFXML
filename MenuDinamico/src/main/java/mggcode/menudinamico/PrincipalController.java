@@ -10,10 +10,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import mggcode.menudinamico.entity.Persona;
 import mggcode.menudinamico.rest.APIRestConfig;
 import mggcode.menudinamico.rest.AccesoDatosRest;
@@ -39,13 +36,13 @@ public class PrincipalController implements Initializable {
     private ListView<Persona> lista;
 
     @FXML
-    private HBox listaDetalle;
+    private HBox contenedor;
+
+    @FXML
+    private GridPane grid;
 
     @FXML
     private ImageView imageAjustes, imageAudio, imageContactos, imageHome;
-
-    @FXML
-    private VBox vBox;
 
     @FXML
     private Pane panel;
@@ -56,14 +53,12 @@ public class PrincipalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        listaDetalle.setVisible(false);
         detalle.setVisible(false);
         grafico.setVisible(false);
         panel.setVisible(false);
 
         personas = cargarPersonas();
         graficoController.cargarDatosPieChart(personas);
-        grafico.setVisible(true);
         personas.forEach(x -> System.out.println(x.getName()));
 
         lista.setItems(personas);
@@ -72,8 +67,9 @@ public class PrincipalController implements Initializable {
             if (newValue != null) {
                 detalleController.mostrarDetalle(new Image("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"), newValue.getName(), newValue.getUsername(),
                         newValue.getPhone(), newValue.getEmail());
+                detalle.setVisible(true);
+                grafico.setVisible(true);
             }
-            detalle.setVisible(true);
         });
     }
 
@@ -103,12 +99,12 @@ public class PrincipalController implements Initializable {
 
     @FXML
     void desplegarMenu(MouseEvent event) {
-        if (vBox.getTranslateX() == -50) {
-            vBox.setTranslateX(vBox.getTranslateX() + 50);
-            panel.setTranslateX(vBox.getTranslateX() + 150);
+        if (grid.getTranslateX() == -75) {
+            grid.setTranslateX(grid.getTranslateX() + 75);
+            panel.setTranslateX(grid.getTranslateX() + 175);
             panel.setVisible(true);
         } else {
-            vBox.setTranslateX(-50.0);
+            grid.setTranslateX(-75.0);
             panel.setVisible(false);
             if (event.getSource().equals(imageHome)) {
                 volverAlMenu();
@@ -117,7 +113,7 @@ public class PrincipalController implements Initializable {
                 volverAlMenu();
             }
             if (event.getSource().equals(imageContactos)) {
-                listaDetalle.setVisible(true);
+                lista.setVisible(true);
                 detalle.setVisible(true);
                 grafico.setVisible(true);
             }

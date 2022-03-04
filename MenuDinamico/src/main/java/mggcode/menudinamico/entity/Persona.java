@@ -153,4 +153,8 @@ public class Persona {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return  name;
+    }
 }

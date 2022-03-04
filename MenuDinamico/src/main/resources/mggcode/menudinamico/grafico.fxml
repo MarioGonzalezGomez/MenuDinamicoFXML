@@ -5,13 +5,16 @@
 <?import javafx.scene.layout.StackPane?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<StackPane fx:id="grafico" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="437.0" style="-fx-background-color: #FEFEFE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mggcode.menudinamico.GraficoController">
+<StackPane fx:id="grafico" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #FEFEFE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mggcode.menudinamico.GraficoController">
     <children>
         <FontIcon fx:id="salirGrafico" iconLiteral="far-arrow-alt-circle-left" iconSize="20" selectionEnd="0" selectionStart="0" StackPane.alignment="TOP_LEFT">
             <StackPane.margin>
                 <Insets left="20.0" top="20.0" />
             </StackPane.margin>
         </FontIcon>
-        <PieChart fx:id="nombres" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="275.0" prefWidth="309.0" StackPane.alignment="CENTER" />
+        <PieChart fx:id="nombres" legendSide="LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" StackPane.alignment="CENTER">
+         <StackPane.margin>
+            <Insets top="55.0" />
+         </StackPane.margin></PieChart>
     </children>
 </StackPane>

@@ -1,8 +1,0 @@
-.label {
-    -fx-border-color: #ff6262;
-    -fx-font-family: Arial;
-}
-
-.label:hover {
-    -fx-background-color: rgba(30, 50, 129, 0.89);
-}
